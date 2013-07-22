@@ -9,3 +9,8 @@ matrix:
       env: JRUBY_OPTS="--1.9 --server -Xcext.enabled=true"
 notifications:
   email: false
+gemfile:
+  - gemfiles/rails3.gemfile
+  - gemfiles/rails31.gemfile
+  - gemfiles/rails32.gemfile
+  - gemfiles/rails4.gemfile
