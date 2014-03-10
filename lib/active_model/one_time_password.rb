@@ -10,7 +10,9 @@ module ActiveModel
 
         include InstanceMethodsOnActivation
 
-        before_create { self.otp_column = ROTP::Base32.random_base32 }
+        if options[:generate_secret_on_create]
+          before_create { self.otp_column = ROTP::Base32.random_base32 }
+        end
 
         if respond_to?(:attributes_protected_by_default)
           def self.attributes_protected_by_default #:nodoc:
